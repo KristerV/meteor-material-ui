@@ -13,10 +13,12 @@ Npm.depends({
 })
 
 Package.onUse(function(api) {
-    var both = ['client', 'server'];
     api.versionsFrom('1.1.0.2');
-    api.use('meteorhacks:npm@1.3.0', both);
+    api.use('meteorhacks:npm@1.3.0');
     api.use(['cosmos:browserify@0.4.0'], 'client');
+
+    // Browserify options need to be loaded before .js, otherwise
+    // require doesn't work.
     api.addFiles(['lib/mui.browserify.options.json', 'mui.browserify.js'], 'client');
     api.export('MUI', 'client');
 });
