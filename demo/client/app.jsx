@@ -6,7 +6,7 @@ var {
   TextField
 } = MUI;
 
-React.initializeTouchEvents(true)
+injectTapEventPlugin()
 
 var App = React.createClass({
   childContextTypes: {
@@ -22,14 +22,12 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
+        <DatePicker hintText="Landscape Dialog" mode="landscape"/>
         <TextField hintText="Hint Text" />
       </div>
     );
   }
 });
-
-// DatePicker gives another error referring to TextField, so debugging TextField first.
-// <DatePicker hintText="Landscape Dialog" mode="landscape"/>
 
 if (Meteor.isClient) {
     Meteor.startup(function () {

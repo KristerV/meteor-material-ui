@@ -14,11 +14,7 @@ Npm.depends({
 
 Package.onUse(function(api) {
     api.versionsFrom('1.1.0.2');
-    api.use('meteorhacks:npm@1.3.0');
-    api.use(['cosmos:browserify@0.4.0'], 'client');
-
-    // Browserify options need to be loaded before .js, otherwise
-    // require doesn't work.
-    api.addFiles(['lib/mui.browserify.options.json', 'mui.browserify.js'], 'client');
-    api.export('MUI', 'client');
+    api.use(['react@0.1.3', 'cosmos:browserify@0.5.0'], 'client');
+    api.addFiles(['mui.browserify.options.json', 'mui.browserify.js'], 'client');
+    api.export(['MUI', 'injectTapEventPlugin'], 'client');
 });
